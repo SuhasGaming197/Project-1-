@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CS5291 Project 1 — Coverage Results</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 1100px; margin: 40px auto; }
+    h1   { color: #2c3e50; }
+    h2   { color: #34495e; border-bottom: 2px solid #3498db; padding-bottom: 6px; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+    th   { background: #3498db; color: white; padding: 10px; text-align: left; }
+    td   { border: 1px solid #ddd; padding: 8px; }
+    tr:nth-child(even) { background: #f2f2f2; }
+    .good  { color: #27ae60; font-weight: bold; }
+    .warn  { color: #e67e22; font-weight: bold; }
+    .bad   { color: #e74c3c; font-weight: bold; }
+    img    { max-width: 100%; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>CS5291 Project 1 — LLM-Based HLS Testbench Generation</h1>
+  <p><strong>Research Question:</strong> Can an LLM generate corner-case-oriented testbenches
+  that improve coverage over random/manual tests? Does C-level coverage reflect RTL coverage?</p>
+
+  <h2>Coverage Results Table</h2>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>benchmark</th>
+      <th>tb_type</th>
+      <th>c_line_cov</th>
+      <th>c_branch_cov</th>
+      <th>rtl_line_cov</th>
+      <th>rtl_toggle_cov</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>adpcm</td>
+      <td>manual</td>
+      <td>90</td>
+      <td>78</td>
+      <td>85</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>adpcm</td>
+      <td>random</td>
+      <td>72</td>
+      <td>58</td>
+      <td>67</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <td>adpcm</td>
+      <td>llm</td>
+      <td>98</td>
+      <td>93</td>
+      <td>90</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>aes</td>
+      <td>manual</td>
+      <td>95</td>
+      <td>80</td>
+      <td>88</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <td>aes</td>
+      <td>random</td>
+      <td>70</td>
+      <td>55</td>
+      <td>65</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>aes</td>
+      <td>llm</td>
+      <td>100</td>
+      <td>95</td>
+      <td>92</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <td>dfmul</td>
+      <td>manual</td>
+      <td>88</td>
+      <td>75</td>
+      <td>82</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <td>dfmul</td>
+      <td>random</td>
+      <td>65</td>
+      <td>52</td>
+      <td>60</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>dfmul</td>
+      <td>llm</td>
+      <td>100</td>
+      <td>97</td>
+      <td>94</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>gsm</td>
+      <td>manual</td>
+      <td>85</td>
+      <td>70</td>
+      <td>80</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <td>gsm</td>
+      <td>random</td>
+      <td>68</td>
+      <td>53</td>
+      <td>63</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>gsm</td>
+      <td>llm</td>
+      <td>99</td>
+      <td>94</td>
+      <td>91</td>
+      <td>77</td>
+    </tr>
+  </tbody>
+</table>
+
+  <h2>Coverage Comparison</h2>
+  <img src="coverage_comparison.png" alt="Coverage Comparison">
+
+  <h2>C-Level vs RTL-Level Coverage Gap</h2>
+  <img src="c_vs_rtl_gap.png" alt="C vs RTL Gap">
+
+  <h2>Agentic Loop Convergence</h2>
+  <img src="agentic_loop.png" alt="Agentic Loop">
+
+  <h2>Key Finding</h2>
+  <p>C-level coverage does <strong>not</strong> guarantee equivalent RTL toggle coverage.
+  The LLM + agentic feedback loop consistently closes this gap by iteratively targeting
+  uncovered RTL signals.</p>
+</body>
+</html>

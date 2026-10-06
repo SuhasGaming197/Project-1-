@@ -1,0 +1,35 @@
+# CS5291 Project 1 Configuration
+# Paste your OpenRouter key below (get free key at https://openrouter.ai)
+openrouter_api_key: "" # Set your API key here locally, DO NOT commit it to GitHub
+openrouter_model: "google/gemini-flash-1.5"
+
+# Benchmarks to run
+benchmarks:
+  - adpcm
+  - gsm
+  - dfmul
+  - sha
+
+# Testbench strategies
+strategies:
+  - random
+  - manual
+  - llm
+
+# Random testbench settings
+random_n_tests: 100
+random_seed: 42
+
+# LLM agentic loop settings
+llm_max_iterations: 5
+llm_coverage_target: 90.0   # stop iterating if line coverage exceeds this %
+
+# HLS tool: "bambu", "vivado", or "mock"
+# Use "mock" if you don't have an HLS tool installed — pipeline still runs for demo
+hls_tool: "mock"
+
+# Paths (relative to project root)
+benchmarks_dir: "benchmarks"
+testbenches_dir: "testbenches"
+results_dir: "results"
+report_dir: "report"
