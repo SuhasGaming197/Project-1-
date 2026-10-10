@@ -1,7 +1,7 @@
 # CS5291 Project 1 Configuration
 # Paste your OpenRouter key below (get free key at https://openrouter.ai)
 openrouter_api_key: "" # Set your API key here locally, DO NOT commit it to GitHub
-openrouter_model: "google/gemini-flash-1.5"
+openrouter_model: "openai/gpt-4o-mini"
 
 # Benchmarks to run
 benchmarks:
